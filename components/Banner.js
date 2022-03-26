@@ -5,21 +5,23 @@ function Banner() {
   return (
     <div className='relative h-[300px] sm:h-[400px] lg:h-[500px] xl:h-[600px] xxl:h-[700px]'>
         <Image 
-            src='/hero.jpg' 
+            className='relative'
+            src='/hero-bw.jpg' 
             layout='fill' 
             objectFit='cover' 
             alt=''
         />
-        <div className='absolute top-1/2 w-full text-center'>
-            <h1 className='text-3xl font-semibold text-white underline underline-offset-8'>
-                YOUR SAFETY, IN OUR HANDS
-            </h1>
 
-            {/* <button className='text-purple-500 bg-white 
-                py-2 px-6 sm:py-4 sm:px-10 shadow-md rounded-full font-bold my-3
-                hover:shadow-lg hover:-translate-y-1 active:shadow-md active:scale-90 transition duration-150
-                '>I&apos;m flexible</button> */}
+        <div className='bg-yellow-500 w-full absolute -bottom-5 lg:bottom-16 
+            lg:right-12 lg:w-max px-2 py-1 lg:px-8 lg:py-2 text-center'>
+            <h1 className='text-gray-700 text-lg font-semibold lg:text-gray-900 lg:text-3xl 
+            lg:font-thin'>SAFE. PROFESSIONAL.</h1>
         </div>
+        
+        {/* <h1 className='absolute bottom-12 left-12
+            text-lg md:text-3xl font-semibold bg-yellow-500 text-gray-800 py-2 px-8'>
+            SAFE. PROFESSIONAL.
+        </h1> */}
     </div>
   )
 }
