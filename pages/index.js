@@ -14,7 +14,7 @@ import Footer from '../components/Footer'
 export default function Home({ exploreData }) {
   console.log(services);
   return (
-    <div>
+    <div className='bg-neutral-900'>
       <Head>
         <title>Carey Patrol</title>
         <meta name="description" content="Security Patrol" />
@@ -23,7 +23,7 @@ export default function Home({ exploreData }) {
 
       <Banner />
 
-      <main className='max-w-7xl mx-auto px-8 sm:px-16 bg-neutral-900'>
+      <main className='max-w-7xl mx-auto px-8 sm:px-16'>
         <section className='pt-16'>
           <div className='w-12 border-b-4 border-yellow-500'>&nbsp;</div>
           <h2 className='text-2xl md:text-4xl text-gray-200 font-semibold pb-2'>Services Offered</h2>
