@@ -75,11 +75,11 @@ export default function Home({ exploreData }) {
                   <div className='flex items-center space-x-1'>
                     <UserGroupIcon className='h-8 text-yellow-500' />
                     <h1 className='text-yellow-500 font-semibold text-lg'>
-                        Body Guards
+                        Bodyguards
                     </h1>
                   </div>
                   <p className='mb-2 text-gray-200'>
-                    Body Guards have a duty to protect an individual. Customers can choose to 
+                    Bodyguards have a duty to protect an individual. Customers can choose to 
                     have an armed or unarmed bodyguard.  They are useful in escorting the 
                     clients in public settings. Managing large crowds. Identifying suspicious 
                     behavior or unauthorized people. Driving the client and safely fleeing the 
