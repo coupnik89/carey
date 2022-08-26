@@ -10,11 +10,11 @@ import styles from '../styles/Home.module.css'
 import { services } from '../data'
 import { ShieldCheckIcon, UserGroupIcon, TruckIcon } from '@heroicons/react/solid'
 import Footer from '../components/Footer'
+import Gallery from '../components/Gallery'
 
 export default function Home({ exploreData }) {
-  console.log(services);
   return (
-    <div className='bg-neutral-900'>
+    <div className=''>
       <Head>
         <title>Carey Patrol</title>
         <meta name="description" content="Security Patrol" />
@@ -26,7 +26,7 @@ export default function Home({ exploreData }) {
       <main className='max-w-7xl mx-auto px-8 sm:px-16'>
         <section className='pt-16'>
           <div className='w-12 border-b-4 border-yellow-500'>&nbsp;</div>
-          <h2 className='text-2xl md:text-4xl text-gray-200 font-semibold pb-2'>Services Offered</h2>
+          <h2 className='text-2xl md:text-4xl text-gray-500 font-semibold pb-2'>Services Offered</h2>
 
           <div className='mt-2'>
             {/* {services.map(service => (
@@ -41,14 +41,14 @@ export default function Home({ exploreData }) {
                     </h1>
                   </div>
                   
-                  <p className='mb-2 text-gray-200'>
+                  <p className='mb-2 text-gray-500 text-xl'>
                     <span className='font-semibold'>Armed Guards</span> are security guards that are permitted to carry guns 
                     while deployed on duty. They are not allowed to carry and use weapons 
                     if they are not on the job. They maintain a safe and secure environment 
                     at businesses, organizations and residential properties.
                   </p>
 
-                  <p className='mb-2 text-gray-200'>
+                  <p className='mb-2 text-gray-500 text-xl'>
                     <span className='font-semibold'>Unarmed Guard</span> are security guards that do not carry guns. They maintain a 
                     safe and secure environment through watchful vigilance. Their mere presence 
                     creates a deterrent to criminals. Homes, businesses, and organizations are 
@@ -63,7 +63,7 @@ export default function Home({ exploreData }) {
                         Security vehicle patrol officer
                     </h1>
                   </div>
-                  <p className='mb-2 text-gray-200'>
+                  <p className='mb-2 text-gray-500 text-xl'>
                     Security vehicle patrol officer is a specific type of security guard who provides 
                     security services in a particular location. An officer is in a security vehicle 
                     and patrols an outdoor property rather than guarding a specific building like 
@@ -78,7 +78,7 @@ export default function Home({ exploreData }) {
                         Bodyguards
                     </h1>
                   </div>
-                  <p className='mb-2 text-gray-200'>
+                  <p className='mb-2 text-gray-500 text-xl'>
                     Bodyguards have a duty to protect an individual. Customers can choose to 
                     have an armed or unarmed bodyguard.  They are useful in escorting the 
                     clients in public settings. Managing large crowds. Identifying suspicious 
@@ -88,8 +88,8 @@ export default function Home({ exploreData }) {
               </div>
 
               <div className='w-12 border-b-4 border-yellow-500'>&nbsp;</div>
-              <h2 className='text-2xl md:text-4xl text-gray-200 font-semibold pb-2 mb-2'>Why Choose Us</h2>
-              <p className='mb-8 text-gray-200'>
+              <h2 className='text-2xl md:text-4xl text-gray-500 font-semibold pb-2 mb-2'>Why Choose Us</h2>
+              <p className='mb-8 text-gray-500 text-xl'>
                 Violent and nonviolent crimes have been on the rise since 2019. Now more than ever it 
                 is pertinent to protect our businesses, homes and loved ones.  Carey patrol’s aim is 
                 to provide quality meticulous service to provide our customers with a sense of peace. 
@@ -99,6 +99,7 @@ export default function Home({ exploreData }) {
             </div>
           </div>
         </section>
+        <Gallery />
       </main>
 
       <Footer />

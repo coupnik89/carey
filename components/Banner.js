@@ -1,16 +1,17 @@
-import Image from 'next/image'
 import React from 'react'
+
+import ReactPlayer from 'react-player'
 
 function Banner() {
   return (
     <div className='relative h-[300px] sm:h-[400px] lg:h-[500px] xl:h-[600px] xxl:h-[700px]'>
-        <Image 
-            className='relative'
-            src='/hero-2.jpg' 
-            layout='fill' 
-            objectFit='cover' 
-            alt=''
-        />
+        <div className='w-full h-full'>
+          <ReactPlayer
+            width='100%' 
+            height='100%'
+            controls
+            url='https://www.youtube.com/watch?v=6HMVQAelTuA' />
+        </div>
 
         <div className='bg-yellow-500 w-full absolute -bottom-5 lg:bottom-16 
             lg:right-12 lg:w-max px-2 py-1 lg:px-8 lg:py-2 text-center'>
