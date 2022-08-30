@@ -12,7 +12,7 @@ const Gallery = ({ images }) => {
     <>
       {image ? <Modal /> : null}
       <div className='my-10 py-10 max-w-7xl mx-auto px-8 sm:px-16'>
-          <div className='flex gap-4 flex-wrap justify-between'>
+          <div className='flex flex-wrap gap-4 justify-center'>
               {images.map(image => (
                 <div onClick={() => changeImage(image.image.asset.url)} key={image._id} 
                 className='relative w-full h-40 md:w-64 md:h-64 cursor-pointer'>

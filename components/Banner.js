@@ -28,14 +28,14 @@ function Banner({ video }) {
 
   return (
     <div className='mb-10 lg:mb-16 relative'>
-        {/* <div className='w-full h-full'>
+        <div className='w-full h-full'>
           <ReactPlayer
             width='100%' 
             height='100%'
             controls
-            url='https://www.youtube.com/watch?v=6HMVQAelTuA' />
-        </div> */}
-          <div 
+            url={video?.video.asset.url} />
+        </div>
+          {/* <div 
             onMouseEnter={() => setisHover(true)}
             onMouseLeave={() => setisHover(false)} 
             className=''>
@@ -57,18 +57,9 @@ function Banner({ video }) {
                             <BsFillPlayFill className='text-gray-700 text-2xl lg:text-4xl'/>
                         </button>
                     )}
-                    {/* {isVideoMuted ? (
-                        <button onClick={() => setisVideoMuted(false)} className='bg-gray-300 p-3 rounded-full'>
-                            <HiVolumeOff className='text-gray-700 text-2xl lg:text-4xl'/>
-                        </button>
-                    ) : (
-                        <button onClick={() => setisVideoMuted(true)} className='bg-gray-300 p-3 rounded-full'>
-                            <HiVolumeUp className='text-gray-700 text-2xl lg:text-4xl'/>
-                        </button>
-                    )} */}
                 </div>
                 )}
-            </div>
+            </div> */}
         </div>
   )
 }
