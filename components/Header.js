@@ -11,7 +11,7 @@ import {
 } from '@heroicons/react/outline'
 
 function Header() {
-   
+
   return (
     <div className='shadow-sm border-b-2 border-yellow-500 bg-gray-900 sticky top-0 z-50'>
         <div className='flex items-center justify-center py-3'>

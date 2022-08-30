@@ -1,29 +1,75 @@
-import React from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 
 import ReactPlayer from 'react-player'
 
-function Banner() {
+import axios from 'axios'
+import { client } from '../utils/client'
+import Link from 'next/link'
+
+import { HiVolumeUp, HiVolumeOff } from 'react-icons/hi'
+import { BsFillPlayFill, BsFillPauseFill } from 'react-icons/bs'
+
+function Banner({ video }) {
+  const [isHover, setisHover] = useState(false)
+  const [playing, setplaying] = useState(false)
+  const [isVideoMuted, setisVideoMuted] = useState(false)
+
+  const videoRef = useRef(null)
+
+  const videoPress = () => {
+        if(playing) {
+            videoRef?.current?.pause()
+            setplaying(false)
+        } else {
+            videoRef?.current?.play()
+            setplaying(true)
+        }
+    }
+
   return (
-    <div className='relative h-[300px] sm:h-[400px] lg:h-[500px] xl:h-[600px] xxl:h-[700px]'>
-        <div className='w-full h-full'>
+    <div className='mb-10 lg:mb-16 relative'>
+        {/* <div className='w-full h-full'>
           <ReactPlayer
             width='100%' 
             height='100%'
             controls
             url='https://www.youtube.com/watch?v=6HMVQAelTuA' />
-        </div>
+        </div> */}
+          <div 
+            onMouseEnter={() => setisHover(true)}
+            onMouseLeave={() => setisHover(false)} 
+            className=''>
+            <video
+                ref={videoRef}
+                src={video?.video.asset.url}
+                loop
+                className=''>        
+            </video>
 
-        <div className='bg-yellow-500 w-full absolute -bottom-5 lg:bottom-16 
-            lg:right-12 lg:w-max px-2 py-1 lg:px-8 lg:py-2 text-center'>
-            <h1 className='text-gray-700 text-lg font-semibold lg:text-gray-900 lg:text-3xl 
-            lg:font-thin'>SAFE. PROFESSIONAL.</h1>
+            {isHover && (
+                <div className='cursor-pointer flex gap-4 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
+                    {playing ? (
+                        <button onClick={videoPress} className='bg-gray-300 p-3 rounded-full'>
+                            <BsFillPauseFill className='text-gray-700 text-2xl lg:text-4xl'/>
+                        </button>
+                    ) : (
+                        <button onClick={videoPress} className='bg-gray-300 p-3 rounded-full'>
+                            <BsFillPlayFill className='text-gray-700 text-2xl lg:text-4xl'/>
+                        </button>
+                    )}
+                    {isVideoMuted ? (
+                        <button onClick={() => setisVideoMuted(false)} className='bg-gray-300 p-3 rounded-full'>
+                            <HiVolumeOff className='text-gray-700 text-2xl lg:text-4xl'/>
+                        </button>
+                    ) : (
+                        <button onClick={() => setisVideoMuted(true)} className='bg-gray-300 p-3 rounded-full'>
+                            <HiVolumeUp className='text-gray-700 text-2xl lg:text-4xl'/>
+                        </button>
+                    )}
+                </div>
+                )}
+            </div>
         </div>
-        
-        {/* <h1 className='absolute bottom-12 left-12
-            text-lg md:text-3xl font-semibold bg-yellow-500 text-gray-800 py-2 px-8'>
-            SAFE. PROFESSIONAL.
-        </h1> */}
-    </div>
   )
 }
 

@@ -1,15 +1,31 @@
 import React from 'react'
 
-import { imgs } from '../data'
-import Photo from './Image'
+import Image from 'next/image'
 
-const Gallery = () => {
+import { useFetch } from '../context/imageContext'
+import Modal from './Modal'
+
+const Gallery = ({ images }) => {
+  const { changeImage, image } = useFetch(state => state)
+
   return (
-    <div className='my-10 border-t-[1px] border-gray-500 py-10'>
-        <div className='flex gap-4 flex-wrap justify-between'>
-            {imgs.map(img => (<Photo key={img} img={img} />))}
-        </div>
-    </div>
+    <>
+      {image ? <Modal /> : null}
+      <div className='my-10 py-10 max-w-7xl mx-auto px-8 sm:px-16'>
+          <div className='flex gap-4 flex-wrap justify-between'>
+              {images.map(image => (
+                <div onClick={() => changeImage(image.image.asset.url)} key={image._id} 
+                className='relative w-40 h-40 md:w-64 md:h-64 cursor-pointer'>
+                    <Image 
+                      src={image?.image.asset.url} 
+                      layout='fill' 
+                      objectFit='cover' 
+                      alt='' />
+                </div>
+              ))}
+          </div>
+      </div>
+    </>
   )
 }
 

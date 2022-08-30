@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios, { useEffect } from 'axios'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -11,20 +11,24 @@ import { services } from '../data'
 import { ShieldCheckIcon, UserGroupIcon, TruckIcon } from '@heroicons/react/solid'
 import Footer from '../components/Footer'
 import Gallery from '../components/Gallery'
+import { BASE_URL } from '../utils'
 
-export default function Home({ exploreData }) {
+import { useFetch } from '../context/imageContext'
+
+const Home = ({ video, images }) => {
   return (
     <div className=''>
       <Head>
         <title>Carey Patrol</title>
         <meta name="description" content="Security Patrol" />
       </Head>
-      <Header />
+    
+      <main className=''>
+        <Header />
 
-      <Banner />
+        <Banner video={video[0]} />
 
-      <main className='max-w-7xl mx-auto px-8 sm:px-16'>
-        <section className='pt-16'>
+        <section className='max-w-7xl mx-auto px-8 sm:px-16'>
           <div className='w-12 border-b-4 border-yellow-500'>&nbsp;</div>
           <h2 className='text-2xl md:text-4xl text-gray-500 font-semibold pb-2'>Services Offered</h2>
 
@@ -99,7 +103,7 @@ export default function Home({ exploreData }) {
             </div>
           </div>
         </section>
-        <Gallery />
+        <Gallery images={images} />
       </main>
 
       <Footer />
@@ -107,19 +111,16 @@ export default function Home({ exploreData }) {
   )
 }
 
+export const getServerSideProps = async () => {
+  const { data } = await axios(`${BASE_URL}/api/post`)
+  const { data: images } = await axios(`${BASE_URL}/api/image`)
 
-export async function getStaticProps () {
-  try {
-    const exploreData = await axios('https://links.papareact.com/pyp')
-    const cardsData = await axios('https://links.papareact.com/zp1')
-
-    return {
-      props: {
-        exploreData: exploreData.data,
-        cardsData: cardsData.data
-      }
+  return {
+    props: {
+      video: data || null,
+      images: images || null
     }
-  } catch (error) {
-    console.log(error)
   }
 }
+
+export default Home
