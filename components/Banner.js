@@ -57,7 +57,7 @@ function Banner({ video }) {
                             <BsFillPlayFill className='text-gray-700 text-2xl lg:text-4xl'/>
                         </button>
                     )}
-                    {isVideoMuted ? (
+                    {/* {isVideoMuted ? (
                         <button onClick={() => setisVideoMuted(false)} className='bg-gray-300 p-3 rounded-full'>
                             <HiVolumeOff className='text-gray-700 text-2xl lg:text-4xl'/>
                         </button>
@@ -65,7 +65,7 @@ function Banner({ video }) {
                         <button onClick={() => setisVideoMuted(true)} className='bg-gray-300 p-3 rounded-full'>
                             <HiVolumeUp className='text-gray-700 text-2xl lg:text-4xl'/>
                         </button>
-                    )}
+                    )} */}
                 </div>
                 )}
             </div>
